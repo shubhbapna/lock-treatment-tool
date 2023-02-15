@@ -20,7 +20,11 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v3
-      - run: git --version
+      - run: |
+          git --version
+          git branch --show-current
+          echo "$GITHUB_SHA"
+          echo "$GITHUB_REF"
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
